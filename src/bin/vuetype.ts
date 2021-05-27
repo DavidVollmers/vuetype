@@ -25,7 +25,7 @@ if (program.args.length === 0) {
   const config = configPath && readConfig(configPath)
   const options = config ? config.options : {}
 
-  if (program['watch']) {
+  if ((<any>program)['watch']) {
     watch(program.args, options)
   } else {
     const patterns = program.args.map(arg => {

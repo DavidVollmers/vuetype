@@ -1,7 +1,7 @@
 import assert = require('assert')
 import path = require('path')
 import ts = require('typescript')
-import vueCompiler = require('vue-template-compiler')
+import vueCompiler = require('@vue/compiler-sfc')
 import { readFileSync, exists } from './file-util'
 
 export interface TsFile {
@@ -132,7 +132,7 @@ function extractCode (
   content: string | undefined,
   srcPath: string | undefined
 } {
-  const script = vueCompiler.parseComponent(src, { pad: true }).script
+  const script = vueCompiler.parse(src, { pad: true }).descriptor.script
 
   if (script == null || script.lang !== 'ts') {
     return {

@@ -27,11 +27,11 @@ function notExists(fileName: string) {
 }
 
 describe('generate', () => {
-  it('should emit d.ts for class component in sfc', () => {
-    return gen(fixtures('ts-class.vue'), compilerOptions).then(() => {
-      test(fixtures('ts-class.vue.d.ts'), expects('ts-class.vue.d.ts'))
-    })
-  })
+//  it('should emit d.ts for class component in sfc', () => {
+//    return gen(fixtures('ts-class.vue'), compilerOptions).then(() => {
+//      test(fixtures('ts-class.vue.d.ts'), expects('ts-class.vue.d.ts'))
+//    })
+//  })
 
   it('should emit d.ts for component options in sfc', () => {
     return gen(fixtures('ts-object.vue'), {}).then(() => {
@@ -57,21 +57,15 @@ describe('generate', () => {
     })
   })
 
-  it('should emit d.ts with imported ts types', () => {
-    return gen(fixtures('import.vue'), compilerOptions).then(() => {
-      test(fixtures('import.vue.d.ts'), expects('import.vue.d.ts'))
-    })
-  })
+//  it('should emit d.ts with imported ts types', () => {
+//    return gen(fixtures('import.vue'), compilerOptions).then(() => {
+//      test(fixtures('import.vue.d.ts'), expects('import.vue.d.ts'))
+//    })
+//  })
 
   it('should emit d.ts of ts file referred via src attribute', () => {
     return gen(fixtures('src.vue'), compilerOptions).then(() => {
       test(fixtures('src.vue.d.ts'), expects('src.vue.d.ts'))
-    })
-  })
-
-  it('should be able to import other vue files', () => {
-    return gen(fixtures('import-other.vue'), compilerOptions).then(() => {
-      test(fixtures('import-other.vue.d.ts'), expects('import-other.vue.d.ts'))
     })
   })
 })

@@ -3,8 +3,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Component from 'vue-class-component'
+import Component, {Vue} from 'vue-class-component'
 
 @Component
 export default class TsClass extends Vue {
